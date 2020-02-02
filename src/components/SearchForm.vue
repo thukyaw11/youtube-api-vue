@@ -1,46 +1,41 @@
 <template>
-<div id="app" class="container">
-    <div class="col-12" >
-    <a-input placeholder="Search..." v-model="searchString" class="searchForm"/>
-    <a-icon type="search" @click="parseSearchString" class="searchBtn"/>
-    
+  <div id="app" class="container">
+    <div class="col-12">
+      <a-input placeholder="Search..." v-model="searchString" class="searchForm" />
+      <a-icon type="search" @click="parseSearchString" class="searchBtn" />
     </div>
-
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-    name : 'SearchForm',
-    data () {
-        return {
-            searchString : ''
-        }
-    },
-    methods : {
-        parseSearchString() {
-            const trimedSearchString = this.searchString.trim();
-            if(trimedSearchString !== null){
-                const searchParams = trimedSearchString.split(/\s+/);
-                this.$emit('search',searchParams);
-                this.searchString = " ";
-            }
-        }
+  name: "SearchForm",
+  data() {
+    return {
+      searchString: ""
+    };
+  },
+  methods: {
+    parseSearchString() {
+      const trimedSearchString = this.searchString.trim();
+      if (trimedSearchString !== null) {
+        const searchParams = trimedSearchString.split(/\s+/);
+        this.$emit("search", searchParams);
+      }
     }
-}
+  }
+};
 </script>
 <style>
-.searchForm{
-    float: left;
+.searchForm {
+  float: left;
 }
-.searchBtn{
-    float: right;
-    font-size: 27px;
-    padding-left: 10px;
-
+.searchBtn {
+  float: right;
+  font-size: 27px;
+  padding-left: 10px;
 }
-.col-12{
-    display: flex;
+.col-12 {
+  display: flex;
 }
-    
 </style>

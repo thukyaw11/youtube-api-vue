@@ -32,7 +32,7 @@ export default {
         type: "video",
         order: "viewCount",
         q: "vuejs+tutorial",
-        maxResults: 30
+        maxResults: 50  
       }
     };
   },

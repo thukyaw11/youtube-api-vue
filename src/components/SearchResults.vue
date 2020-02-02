@@ -13,11 +13,11 @@
         <a :href="'https://www.youtube.com/watch?v=' + video.id.videoId" target="_blank">
           <img
             class="card-img-top"
-            :src="video.snippet.thumbnails.medium.url"
+            :src="video.snippet.thumbnails.high.url"
             alt="YouTube thumbnail"
           />
         </a>
-        
+
         <div class="card-body">
           <h5 class="card-title">{{ video.snippet.title }}</h5>
           <h6
