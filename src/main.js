@@ -7,13 +7,17 @@ import 'ant-design-vue/dist/antd.css';
 import  Button  from 'ant-design-vue/lib/button';
 import Icon from 'ant-design-vue/lib/icon';
 import Input from 'ant-design-vue/lib/input';
+import Empty from 'ant-design-vue/lib/empty';
+
 import axios from 'axios';
+
 
 Vue.config.productionTip = false;
 Vue.use(Button);
 Vue.use(axios);
 Vue.use(Input);
 Vue.use(Icon);
+Vue.use(Empty);
 Vue.use(VueYouTubeEmbed)
 
 

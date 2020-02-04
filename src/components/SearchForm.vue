@@ -1,8 +1,8 @@
 <template>
-  <div id="app" class="container">
-    <div class="col-12">
-      <a-input placeholder="Search..." v-model="searchString" class="searchForm" />
-      <a-icon type="search" @click="parseSearchString" class="searchBtn" />
+  <div id="app" class="container-fluid">
+    <div class="col-12 mt-3">
+    <a-input-search placeholder="Search or Chill ..." v-model="searchString" @keydown.13.prevent="parseSearchString"
+    class="searchForm"/>
     </div>
   </div>
 </template>
@@ -27,14 +27,7 @@ export default {
 };
 </script>
 <style>
-.searchForm {
-  float: left;
-}
-.searchBtn {
-  float: right;
-  font-size: 27px;
-  padding-left: 10px;
-}
+
 .col-12 {
   display: flex;
 }
