@@ -52,11 +52,9 @@ export default {
       const { base_url, api_key, part, type, order, q, maxResults } = this.api;
       const api_url = `${base_url}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${api_key}`;
       console.log(api_url);
-      if(this.api.q !== ""){
               this.getVideos(api_url);
-      } else {
-        alert('Search keyword not found');
-      }
+
+      
 
     },
     getVideos(api_url) {
