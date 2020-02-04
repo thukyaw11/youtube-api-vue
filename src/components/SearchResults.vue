@@ -9,27 +9,15 @@
       </div>
     </div>
     <div class="card-columns">
-      <div class="card">
-        <ul>
-          <li>{{videos_statistic}}</li>
-        </ul>
-      </div>
       <div class="card" v-bind:key="video.id.videoId" v-for="video in videos">
-        <a :href="'https://www.youtube.com/watch?v=' + video.id.videoId" target="_blank">
-          <img
-            class="card-img-top"
-            :src="video.snippet.thumbnails.high.url"
-            alt="YouTube thumbnail"
-          />
-
+        <youtube :video-id="video.id.videoId" id="youtube_vd" player-width="100%" player-height="200"></youtube>
           <div class="card-body">
             <h5 class="card-title">{{ video.snippet.title }}</h5>
             <h6
               class="card-subtitle mb-2 text-muted"
             >{{ video.snippet.channelTitle }} | {{ video.snippet.publishedAt | formatDate }}</h6>
             <p class="card-text">{{ video.snippet.description }}</p>
-          </div>
-        </a>
+          </div>  
       </div>
     </div>
   </div>
@@ -45,5 +33,9 @@ export default {
 <style>
 .searchResultTitle {
   font-size: 20px;
+}
+#youtube_vd{
+  width: 100%;
+  height: 100%;
 }
 </style>
