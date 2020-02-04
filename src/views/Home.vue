@@ -27,7 +27,7 @@ export default {
       reformattedSearchString: "",
       api: {
         base_url: "https://www.googleapis.com/youtube/v3/search?",
-        api_key: "AIzaSyCxD2yWrD1h_a4lG0kWEdDGchJtItuyl74",
+        api_key: "AIzaSyCZ0cCbdc-ZRRqhUVabz8BgRBPm1BT94Vk",
         part: "snippet",
         type: "video",
         order: "viewCount",
@@ -45,6 +45,7 @@ export default {
       console.log(this.api.q);
       const { base_url, api_key, part, type, order, q, maxResults } = this.api;
       const api_url = `${base_url}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${api_key}`;
+      console.log(api_url);
       this.getVideos(api_url);
     },
     getVideos(api_url) {
