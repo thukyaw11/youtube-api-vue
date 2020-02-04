@@ -1,8 +1,10 @@
 <template>
   <div id="app" class="container-fluid">
     <div class="col-12 mt-3">
-    <a-input-search placeholder="Search or Chill ..." v-model="searchString" @keydown.13.prevent="parseSearchString"
-    class="searchForm"/>
+    
+        <a-input placeholder="Search..." v-model="searchString" class="searchForm"/>
+    <a-button type="primary" @click="parseSearchString"  icon="search" id="searcn_btn"></a-button>
+    
     </div>
   </div>
 </template>
@@ -31,4 +33,5 @@ export default {
 .col-12 {
   display: flex;
 }
+
 </style>

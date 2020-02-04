@@ -24,10 +24,12 @@ export default {
   },
   created() {
       this.keywords = JSON.parse(localStorage.getItem('keyword'));
+      if(this.keywords){
       if(this.keywords.length > 5){
           this.keywords.shift();
       localStorage.setItem('keyword',JSON.stringify(this.keywords));
 
+      }
       }
   },
   methods : {
