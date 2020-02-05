@@ -33,7 +33,7 @@ export default {
       keyword_storage: localStorage.getItem('keyword') ? JSON.parse(localStorage.getItem('keyword')) : [],
       api: {
         base_url: "https://www.googleapis.com/youtube/v3/search?",
-        api_key: "AIzaSyCZ0cCbdc-ZRRqhUVabz8BgRBPm1BT94Vk",
+        api_key: "AIzaSyBetQk4ei8yZMHgs6Ll-gfbIRf328oeVwM",
         part: "snippet",
         type: "video",
         order: "viewCount",

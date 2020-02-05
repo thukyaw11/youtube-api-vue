@@ -3,7 +3,7 @@
         <div class="row mt-2 ml-2">
             <div class="col-12">
                 <div class="search_key" v-for="keyword in keywords" v-bind:key="keyword">
-                    {{keyword}}
+                    <span>{{keyword}}</span>
                 </div>
                 <p id="trash" @click="deleteKeyword"><a-icon type="delete"/></p>
   
