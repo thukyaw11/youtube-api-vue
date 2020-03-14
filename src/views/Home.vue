@@ -1,77 +1,78 @@
 <template>
   <div id="app">
-  
-    <SearchForm v-on:search="search" />
-    <SearchKeyword/>
-    <SearchResults 
-    v-if="videos.length > 0"
-    v-bind:videos="videos" 
-    v-bind:reformattedSearchString="reformattedSearchString" />
-    <img src="./video-player.png" width="200px" height="200px" alt="image" id="no-item" v-else>
-  <br><br>
-    <span slot="description" id="descri"> All your favourite is here</span>
+    <md-toolbar class="md-transparent" md-elevation="0">
+      <md-button class="md-icon-button" @click="showNavigation = true">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <span class="md-title">
+        <img src="../assets/logo.png" alt="logo" width="28" height="15" style="margin-right: 10px" />
+        YouTube
+      </span>
+
+      <div class="md-toolbar-section-end">
+        <router-link to="/search">
+          <md-button class="md-icon-button">
+            <md-icon>search</md-icon>
+          </md-button>
+        </router-link>
+      </div>
+    </md-toolbar>
+
+    <md-drawer :md-active.sync="showNavigation" md-swipeable>
+      <md-toolbar class="md-transparent" md-elevation="0">
+        <span class="md-title">
+          <img
+            src="../assets/logo.png"
+            alt="logo"
+            width="28"
+            height="15"
+            style="margin-right: 10px"
+          />
+          YouTube
+        </span>
+      </md-toolbar>
+
+      <md-list>
+        <md-list-item>
+          <md-icon>move_to_inbox</md-icon>
+          <span class="md-list-item-text">Inbox</span>
+        </md-list-item>
+
+        <md-list-item>
+          <md-icon>send</md-icon>
+          <span class="md-list-item-text">Sent Mail</span>
+        </md-list-item>
+
+        <md-list-item>
+          <md-icon>delete</md-icon>
+          <span class="md-list-item-text">Trash</span>
+        </md-list-item>
+
+        <md-list-item>
+          <md-icon>error</md-icon>
+          <span class="md-list-item-text">Spam</span>
+        </md-list-item>
+      </md-list>
+    </md-drawer>
+    <md-content>
+      <DefaultResult/>
+
+    </md-content>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
-import SearchForm from "../components/SearchForm";
-import SearchResults from "../components/SearchResults";
-import SearchKeyword from "../components/SearchKeyword";
+import DefaultResult from '../components/DefaultResult';
 
-import axios from "axios";
 
 export default {
-  components: {
-    SearchForm,
-    SearchResults,
-    SearchKeyword
+  components : {
+    DefaultResult
   },
   data() {
     return {
-      videos: [],
-      reformattedSearchString: "",
-      keyword_storage: localStorage.getItem('keyword') ? JSON.parse(localStorage.getItem('keyword')) : [],
-      api: {
-        base_url: "https://www.googleapis.com/youtube/v3/search?",
-        api_key: "AIzaSyBetQk4ei8yZMHgs6Ll-gfbIRf328oeVwM",
-        part: "snippet",
-        type: "video",
-        order: "viewCount",
-        q: "",
-        maxResults: 50  
-      }
+      showNavigation: false,
     };
-  },
-  methods: {
-    search(searchParams) {
-      this.reformattedSearchString = searchParams.join(" ");
-      this.addKeyword(this.reformattedSearchString);
-      this.api.q = searchParams.join("+");
-
-      
-      const { base_url, api_key, part, type, order, q, maxResults } = this.api;
-      const api_url = `${base_url}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${api_key}`;
-      console.log(api_url);
-              this.getVideos(api_url);
-
-      
-
-    },
-    getVideos(api_url) {
-      axios
-        .get(api_url)
-        .then(res => {
-          this.videos = res.data.items;
-          console.log(this.videos);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    addKeyword(keyword){
-      this.keyword_storage.push(keyword);
-      localStorage.setItem('keyword',JSON.stringify(this.keyword_storage));
-    }
   }
 };
 /* eslint-enable no-console */
@@ -81,13 +82,5 @@ export default {
 <style>
 #nav {
   padding: 0;
-}
-#no-item{
-  margin-top: 200px;
-  opacity: 0.7;
-}
-#descri{
-  opacity: 0.8;
-  font-size: 25px;
 }
 </style>

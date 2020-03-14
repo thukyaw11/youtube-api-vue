@@ -3,7 +3,7 @@
         <div class="row mt-2 ml-2">
             <div class="col-12">
                 <div class="search_key" v-for="keyword in keywords" v-bind:key="keyword">
-                    <span>{{keyword}}</span>
+                    <span class="keyword" @click="keywordSearch" id="keywordSearch">{{keyword}}</span>
                 </div>
                 <p id="trash" @click="deleteKeyword"><a-icon type="delete"/></p>
   
@@ -36,6 +36,9 @@ export default {
       deleteKeyword(){
           localStorage.clear();
           location.reload();
+      },
+      keywordSearch(){
+          console.log(document.getElementById('keywordSearch'));
       }
   }
 }

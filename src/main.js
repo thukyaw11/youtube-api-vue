@@ -10,7 +10,11 @@ import Input from 'ant-design-vue/lib/input';
 import Empty from 'ant-design-vue/lib/empty';
 
 import axios from 'axios';
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 
+Vue.use(VueMaterial)
 
 Vue.config.productionTip = false;
 Vue.use(Button);
