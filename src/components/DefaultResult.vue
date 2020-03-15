@@ -39,7 +39,7 @@ export default {
         part: "snippet",
         type: "video",
         order: "viewCount",
-        q: "happier",
+        q: "ifinity shwe htoo",
         maxResults: 10
       }
     };
