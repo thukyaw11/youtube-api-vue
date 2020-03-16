@@ -54,4 +54,13 @@ html {
   overflow: hidden;
   bottom: 0;
 }
+#scrollMenu{
+    margin: 14px 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space:nowrap;
+}
+#scrollMenu::-webkit-scrollbar {
+  display: none;
+}
 </style>
